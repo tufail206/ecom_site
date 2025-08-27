@@ -1,8 +1,13 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
 
 const UserLayout = () => {
   return (
-    <div>UserLayout</div>
+    <div>
+        <h1>header</h1>
+        <Outlet/>
+        <h1>footer</h1>
+    </div>
   )
 }
 

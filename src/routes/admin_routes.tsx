@@ -1,10 +1,10 @@
-import React from 'react'
-import { Outlet, useNavigate } from 'react-router-dom';
 
-const admin_routes = () => {
-    const navigate=useNavigate()
+import { Navigate, Outlet } from 'react-router-dom';
+
+const Admin_routes = () => {
+   
     const isAdmin=false
-  return  isAdmin ? <Outlet/> : navigate("/login")
+  return isAdmin ? <Outlet /> : <Navigate to="/login" replace />;
 }
 
-export default admin_routes
+export default Admin_routes;
