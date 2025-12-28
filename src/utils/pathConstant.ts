@@ -54,6 +54,8 @@ export const appPath = {
   ADMIN_USERS: "/dashboard/users",
   ADMIN_USER_DETAILS: "/dashboard/users/:id",
 
+ ADMIN_ANALYTICS: "/dashboard/analytics",
+
   ADMIN_COUPONS: "/dashboard/coupons",
   ADMIN_SETTINGS: "/dashboard/settings",
 

@@ -34,19 +34,19 @@ const Sidebar = ({ open, setOpen }: SidebarProps) => {
           onClick={handleClick}
         />
         <SidebarItem
-          to="/users"
+          to={appPath.ADMIN_USERS}
           icon={<Users size={18} />}
           label="Users"
           onClick={handleClick}
         />
         <SidebarItem
-          to="/orders"
+          to={appPath.ADMIN_ORDERS}
           icon={<ShoppingCart size={18} />}
           label="Orders"
           onClick={handleClick}
         />
         <SidebarItem
-          to="/analytics"
+          to={appPath.ADMIN_ANALYTICS}
           icon={<BarChart2 size={18} />}
           label="Analytics"
           onClick={handleClick}

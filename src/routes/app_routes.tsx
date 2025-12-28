@@ -19,7 +19,9 @@ export const appRoute = (
 
       <Route element={<Admin_routes />}>
         <Route element={<AdminLayout />} errorElement={<h2>admin dashboard error</h2>} ErrorBoundary={ErrorBoundary}>
-          <Route path="/dashboard" lazy={() => import("../pages/admin/dashboard")} />
+          <Route path={appPath.ADMIN_DASHBOARD} lazy={() => import("../pages/admin/dashboard")} />
+          <Route path={appPath.ADMIN_PRODUCTS} lazy={() => import("../pages/admin/products")} />
+          <Route path={appPath.ADMIN_USERS} lazy={() => import("../pages/admin/user")} />
         </Route>
         {/* //admin route  */}
       </Route>
