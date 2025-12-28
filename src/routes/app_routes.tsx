@@ -4,20 +4,22 @@ import UserLayout from "../layouts/user_layout/Layout";
 import AdminLayout from "../layouts/admin_layout/Layout";
 import Admin_routes from "./admin_routes";
 import { appPath } from "../utils/pathConstant";
+import ErrorBoundary from "../components/ErrorBoundary";
 
 export const appRoute = (
   <>
-    <Route path={appPath.ROOT} element={<App />}>
+    <Route path={appPath.ROOT} element={<App />} ErrorBoundary={ErrorBoundary}  errorElement={<h2>something went wrong</h2> }>
       {/* //user route  */}
 
-      <Route path={appPath.LOGIN} lazy={() => import("../pages/Home")} />
+      <Route path={appPath.LOGIN} lazy={() => import("../pages/auth/login")} />
+   
       <Route element={<UserLayout />}>
-        <Route path={appPath.HOME} lazy={() => import("../pages/Home")} />
+        <Route path={appPath.HOME} lazy={() => import("../pages/users/Home")} />
       </Route>
 
       <Route element={<Admin_routes />}>
-        <Route element={<AdminLayout />}>
-          <Route path="/dashboard" lazy={() => import("../pages/Dashboard")} />
+        <Route element={<AdminLayout />} errorElement={<h2>admin dashboard error</h2>} ErrorBoundary={ErrorBoundary}>
+          <Route path="/dashboard" lazy={() => import("../pages/admin/dashboard")} />
         </Route>
         {/* //admin route  */}
       </Route>

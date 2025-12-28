@@ -1,16 +1,22 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
+import React from "react";
+import Sidebar from "./Sidebar";
+import { Outlet } from "react-router-dom";
+import Header from "./Header";
 
-const AdminLayout = () => {
+export default function AdminDashboard() {
+  const [open, setOpen] = React.useState(false);
+
   return (
-    <div>
-      <h1>AdminLayout</h1>
-      <aside>sidebar</aside>
-      <main>
-        <Outlet />
-      </main>
+    <div className="min-h-screen flex bg-gray-100 w-full">
+      <Sidebar open={open} setOpen={setOpen} />
+
+      {/* Main content */}
+      <div className="flex-1 w-full  ">
+       <Header open={open} setOpen={setOpen}/>
+
+       <Outlet/>
+      </div>
     </div>
   );
 }
 
-export default AdminLayout

@@ -3,7 +3,7 @@ import { Navigate, Outlet } from 'react-router-dom';
 
 const Admin_routes = () => {
    
-    const isAdmin=false
+    const isAdmin=true
   return isAdmin ? <Outlet /> : <Navigate to="/login" replace />;
 }
 
