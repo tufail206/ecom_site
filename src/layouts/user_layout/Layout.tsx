@@ -1,14 +1,18 @@
-import React from 'react'
+
 import { Outlet } from 'react-router-dom'
+import UserHeader from './Header'
+import Footer from './Footer'
 
 const UserLayout = () => {
   return (
     <div>
-        <h1>header</h1>
-        <Outlet/>
-        <h1>footer</h1>
+      <UserHeader />
+      <div className="p-10 font-serif">
+        <Outlet />
+      </div>
+      <Footer />
     </div>
-  )
+  );
 }
 
 export default UserLayout
