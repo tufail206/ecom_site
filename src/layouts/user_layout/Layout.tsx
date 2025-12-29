@@ -7,7 +7,7 @@ const UserLayout = () => {
   return (
     <div>
       <UserHeader />
-      <div className="p-10 font-serif">
+      <div className="px-4 py-6 sm:px-10 sm:py-10 font-serif">
         <Outlet />
       </div>
       <Footer />

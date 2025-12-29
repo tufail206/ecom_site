@@ -23,7 +23,7 @@ const Sidebar = ({ open, setOpen }: SidebarProps) => {
     >
       <div className="p-6 text-xl font-bold border-b flex justify-between items-center">
         <h1>Admin Panel</h1>
-        {  open && <X onClick={handleClick}/>} 
+        {open && <X onClick={handleClick} />}
       </div>
 
       <nav className="p-4 space-y-2">
@@ -31,6 +31,12 @@ const Sidebar = ({ open, setOpen }: SidebarProps) => {
           to={appPath.ADMIN_DASHBOARD}
           icon={<Home size={18} />}
           label="Dashboard"
+          onClick={handleClick}
+        />
+        <SidebarItem
+          to={appPath.ADMIN_PRODUCTS}
+          icon={<ShoppingCart size={18} />}
+          label="Products"
           onClick={handleClick}
         />
         <SidebarItem

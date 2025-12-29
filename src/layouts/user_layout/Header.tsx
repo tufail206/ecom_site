@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Menu, ShoppingCart, User, X } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import type { RootState } from "../../redux/store";
 
 export default function UserHeader() {
   const [open, setOpen] = useState(false);
- const [isLoggedIn,setIsLoggedIn]=useState(true);
+  const { isAuthenticated } = useSelector((state: RootState) => state.auth);
+  const isLoggedIn = isAuthenticated;
+  const { totalQuantity } = useSelector((state: RootState) => state.cart);
+
   return (
     <>
       <header className="bg-white shadow-md sticky top-0 z-50">
@@ -27,10 +32,12 @@ export default function UserHeader() {
             <div className="flex items-center space-x-4">
               <Link to="/cart" className="relative">
                 <ShoppingCart />
-                {/* Example cart badge */}
-                <span className="absolute -top-2 -right-2 bg-green-600 text-white text-xs rounded-full px-1">
-                  2
-                </span>
+                {/* Real cart badge */}
+                {totalQuantity > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-green-600 text-white text-[10px] font-bold rounded-full h-5 w-5 flex items-center justify-center border-2 border-white">
+                    {totalQuantity}
+                  </span>
+                )}
               </Link>
 
               {/* Profile only on desktop */}
@@ -64,9 +71,8 @@ export default function UserHeader() {
 
       {/* Drawer */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-white z-50 transform transition-transform duration-300 ${
-          open ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed top-0 right-0 h-full w-64 bg-white z-50 transform transition-transform duration-300 ${open ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <div className="flex items-center justify-between px-4 h-16 border-b">
           <span className="font-bold text-lg">Menu</span>
